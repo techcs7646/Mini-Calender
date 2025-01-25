@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calendar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .calendar-container {
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            width: 40%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .month {
+            background-color: #4689d2;
+            color: white;
+            padding: 10px 0;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .day {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .date {
+            font-size: 60px;
+            color: #1f63ad;
+            margin: 10px 0;
+        }
+
+        .year {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+
+</head>
+<body><div>
+    <h1>Mini Calender</h1>
+</div>
+    <div class="calendar-container">
+        <p id="month" class="month"></p>
+        <p id="day" class="day"></p>
+        <h2 id="date" class="date"></h2>
+        <p id="year" class="year"></p>
+    </div>
+
+    <script>
+        const lang = navigator.language;
+        const today = new Date();
+
+        // Get date components
+        const dayName = today.toLocaleString(lang, { weekday: 'long' });
+        const monthName = today.toLocaleString(lang, { month: 'long' });
+        const dayNumber = today.getDate();
+        const year = today.getFullYear();
+
+        // Update the HTML
+        document.getElementById('month').textContent = monthName;
+        document.getElementById('day').textContent = dayName;
+        document.getElementById('date').textContent = dayNumber;
+        document.getElementById('year').textContent = year;
+    </script>
+</body>
+</html>
